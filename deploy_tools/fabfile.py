@@ -11,7 +11,7 @@ def deploy():
         _get_latest_source()
         _update_virtualenv()
         _create_or_update_dotenv()
-        #_update_static_files()
+        _update_static_files()
         _update_database()
 
 def _get_latest_source():
@@ -36,9 +36,9 @@ def _create_or_update_dotenv():
             'abcdefghijklmnopqrstuvwxyz0123456789', k=50
         ))
         append('.env', f'DJANGO_SECRET_KEY={new_secret}')
-"""
+
 def _update_static_files():
     run('./virtualenv/bin/python3 manage.py collectstatic --noinput')
-"""
+
 def _update_database():
     run('./virtualenv/bin/python3 manage.py migrate --noinput')
